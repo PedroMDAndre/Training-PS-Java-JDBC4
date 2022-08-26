@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.sql.SQLException;
 
+import com.pluralsight.corejdbc.m3c3.MainCDI;
+import com.pluralsight.corejdbc.m3c3.MainJEE;
 import util.PrintUtil;
 
 public class Demo {
@@ -25,9 +27,9 @@ public class Demo {
 			case "m3c3":
 				String mainToRun = args[1];
 				if (mainToRun.equalsIgnoreCase("JEE")) {
-					com.pluralsight.corejdbc.m3c3.Main_JEE.main(null);
+					MainJEE.main(null);
 				} else if (mainToRun.equalsIgnoreCase("CDI")) {
-					com.pluralsight.corejdbc.m3c3.Main_CDI.main(null);
+					MainCDI.main(null);
 				} else {
 					System.out.println("You must secify either JEE or CDI as an imput paramters");
 					System.out.println("For example: java -cp target/corejdbc.jar Demo m3c3 JEE");

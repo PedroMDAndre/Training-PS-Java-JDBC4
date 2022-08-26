@@ -5,9 +5,11 @@ import javax.sql.DataSource;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+import static com.pluralsight.corejdbc.common.ConstantProperties.DB_URL;
+
 public class DataSourceProducer {
 
-	public MysqlDataSource mySqldataSource = null;
+	private MysqlDataSource mySqldataSource;
 
 	@Produces
 	@MySqlDataSource
@@ -16,9 +18,9 @@ public class DataSourceProducer {
 
 		if (mySqldataSource == null) {
 			mySqldataSource = new MysqlDataSource();
-			mySqldataSource.setPassword("pluralsight");
+			mySqldataSource.setPassword("root");
 			mySqldataSource.setUser("root");
-			mySqldataSource.setURL("jdbc:mysql://localhost:3306/classicmodels?serverTimezone=UTC");
+			mySqldataSource.setURL(DB_URL);
 		}
 		return mySqldataSource;
 	}
