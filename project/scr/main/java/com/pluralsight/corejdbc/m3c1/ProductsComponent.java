@@ -9,12 +9,9 @@ import static com.pluralsight.corejdbc.common.ConstantProperties.DB_URL;
 public class ProductsComponent {
 
     public boolean tryConnection() throws SQLException {
-        try (
-                Connection connection = DriverManager.getConnection(DB_URL)
-        ) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
             return connection.isValid(2);
         }
     }
-
 }
 

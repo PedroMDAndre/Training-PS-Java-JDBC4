@@ -1,6 +1,7 @@
 package com.pluralsight.corejdbc.m3c2;
 
 public class Main {
+
 	public static void main(String[] args) throws Exception {
 
 		try {
