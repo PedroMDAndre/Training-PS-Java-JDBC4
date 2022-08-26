@@ -33,25 +33,16 @@ public class DoublePredicate implements Predicate {
 			
 			return false;
 		}
-		switch(rationalOperator) {
-		case EQUALS:
-			return (value == boundryValue1 ? true : false);
-		case NOT_EQUAL:
-			return (value != boundryValue1 ? true : false);
-		case GREATER_THAN:
-			return (value < boundryValue1 ? true : false);
-		case GREATER_THAN_OR_EQUAL:
-			return (value <= boundryValue1 ? true : false);
-		case LESS_THAN:
-			return (value < boundryValue1 ? true : false);
-		case LESS_THAN_OR_EQUAL:
-			return (value >= boundryValue1 ? true : false);
-		case BETWEEN_INC:
-			return (value >= boundryValue1 && value <= boundryValue1 ? true : false);
-		case BETWEEN_EX:
-			return (value > boundryValue1 && value < boundryValue1 ? true : false);
-		}
-		
-		return false;
+		return switch (rationalOperator) {
+			case EQUALS -> (value == boundryValue1);
+			case NOT_EQUAL -> (value != boundryValue1);
+			case GREATER_THAN -> (value > boundryValue1);
+			case GREATER_THAN_OR_EQUAL -> (value <= boundryValue1);
+			case LESS_THAN -> (value < boundryValue1);
+			case LESS_THAN_OR_EQUAL -> (value >= boundryValue1);
+			case BETWEEN_INC -> (value >= boundryValue1 && value <= boundryValue1);
+			case BETWEEN_EX -> (value > boundryValue1 && value < boundryValue1);
+		};
+
 	}
 }
